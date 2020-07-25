@@ -20,18 +20,18 @@ public class Program {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:ss");
 		
 		System.out.println("Enter Rental data: ");
-		System.out.println("car Model:");
+		System.out.print("car Model:");
 		String carModel=sc.nextLine();
-		System.out.println("Pickuo(dd/MM/yyyy hh:ss):");
+		System.out.print("Pickuo(dd/MM/yyyy hh:ss):");
 		Date start =sdf.parse(sc.nextLine());
-		System.out.println("Return(dd/MM/yyyy hh:ss):");
+		System.out.print("Return(dd/MM/yyyy hh:ss):");
 		Date finish = sdf.parse(sc.nextLine());
 		
 		CarRental cr = new CarRental(start, finish, new Vehicle(carModel));
 			
-		System.out.println("Enter proc per hour:");
+		System.out.print("Enter proc per hour: ");
 		double pricePerhour= sc.nextDouble();
-		System.out.println("Enter price day:");
+		System.out.print("Enter price day: ");
 		double pricePerDay = sc.nextDouble();
 		
 		RentalService rentalService = new RentalService(pricePerDay, pricePerhour, new BrazilTaxService());
@@ -40,9 +40,9 @@ public class Program {
 		
 		
 		System.out.println("INVOICE:");
-		System.out.println("Basic Payment:"+String.format("%.2f",cr.getIncoice().getBasicPayment()));
-		System.out.println("Tax"+String.format("%.2f",cr.getIncoice().getTax()));
-		System.out.println("Total payment"+String.format("%.2f",cr.getIncoice().getTotalPayment()));
+		System.out.println("Basic Payment:" +String.format("%.2f",cr.getIncoice().getBasicPayment()));
+		System.out.println("Tax: " +String.format("%.2f",cr.getIncoice().getTax()));
+		System.out.println("Total payment: " +String.format("%.2f",cr.getIncoice().getTotalPayment()));
 		
 				
 				sc.close();
